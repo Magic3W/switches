@@ -1,0 +1,6 @@
+[submodule "SpitfireEngine"]
+	path = spitfire
+	url = https://github.com/Csardelacal/SpitfireEngine
+[submodule "Spitfire"]
+	path = spitfire
+	url = https://phabricator.magic3w.com/source/spitfire.git
