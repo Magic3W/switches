@@ -4,3 +4,5 @@ Documentation/*
 *.sublime-project
 
 *.sublime-workspace
+/nbproject/private/
+bin/settings/environments.php

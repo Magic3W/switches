@@ -12,3 +12,6 @@
  * of the following rules. So add them wisely.
  * It's really easy and fun!
  */
+
+\spitfire\core\router\Router::getInstance()->request('/definitions/group/:action?', ['controller' => ['definitions', 'group'], 'action' => ':action']);
+\spitfire\core\router\Router::getInstance()->request('/definitions/setting/:action?', ['controller' => ['definitions', 'setting'], 'action' => ':action']);

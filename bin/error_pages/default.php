@@ -1,6 +1,8 @@
 <?php
 
-use spitfire\core\Environment;
+use spitfire\io\stp\SimpleStackTracePrinter;
+
+$stp = isset($exception)? new SimpleStackTracePrinter($exception) : null;
 
 ?><!DOCTYPE html>
 <html>
@@ -20,16 +22,16 @@ use spitfire\core\Environment;
 				color: #FFF;
 				padding: 20px;
 			}
-
+			
 			.errormsg p {
 				color: #FFF;
 			}
-
+			
 			.wrapper {
 				margin: 0 auto;
 				width: 960px;
 			}
-
+			
 			h1 {
 				margin: 8px 0 4px;
 				font-size: 20px;
@@ -38,21 +40,21 @@ use spitfire\core\Environment;
 				margin: 8px 0 3px;
 				font-size: 17px;
 			}
-
+			
 			p {
 				font-size: 13px;
 				color: #555;
 			}
-
+			
 			small {
 				font-size: 70%;
 				color: #777;
 			}
-
+			
 			.sfheader {
 				margin: 20px 0 10px 0;
 			}
-
+			
 			.errordescription pre,
 			.errordescription .debugmessages {
 				border: dashed 1px #cccccc;
@@ -62,6 +64,10 @@ use spitfire\core\Environment;
 				max-height: 300px;
 				overflow: auto;
 			}
+			
+			<?php if ($stp) : ?>
+			<?php echo $stp->makeCSS(); ?>
+			<?php endif; ?>
 		</style>
 	</head>
 	<body>
@@ -70,20 +76,29 @@ use spitfire\core\Environment;
 		</div>
 		<div class="errormsg">
 			<div class="wrapper">
-				<h1>Generic error</h1>
-				<p><?= $message ?></p>
+				<h1><?= $code ?>: <?= $message ?></h1>
+				<p><?=$message?></p>
 			</div>
 		</div>
 
-		<?php if (Environment::get('debug_mode')): ?>
-			<div class="errordescription wrapper">
-				<h2>Further error information <small>To hide this set debug_mode to false.</small></h2>
-				<p>The stacktrace displays the function calls made that led to the error. They are displayed in an inverted order to how they were called.</p>
-				<pre><?= $moreInfo ?></pre>
-
-				<?php
+		<?php if($stp): ?>
+		<div class="errordescription wrapper">
+			<h2>Further error information <small>To hide this set debug_mode to false.</small></h2>
+			<p>The stacktrace displays the function calls made that led to the error. They are displayed in an inverted order to how they were called.</p>
+			
+			<?= $stp ?>
+			
+			<?php ini_set('display_errors', true); ?>
+			<?php $previous = $exception->getPrevious(); ?>
+			<?php while ($previous) : ?>
+			<?php $printer  = new SimpleStackTracePrinter($previous); ?>
+			<?php echo $printer; ?>
+			<?php $previous = $previous->getPrevious(); ?>
+			<?php endwhile; ?>
+			
+			<?php
 				$messages = spitfire()->getMessages();
-				if ($messages) {
+				if ($messages){
 					echo '<h2>Debugging messages <small>To hide this set debug_mode to false.</small></h2>';
 					echo '<p>List of messages the app generated during it\'s execution</p>';
 					echo '<div class="debugmessages">';
@@ -94,8 +109,8 @@ use spitfire\core\Environment;
 					echo '</ul>';
 					echo '</div>';
 				}
-				?>
-			</div>
+			?>
+		</div>
 		<?php endif; ?>
 	</body>
 </html>
