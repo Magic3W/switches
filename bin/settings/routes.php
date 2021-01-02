@@ -15,3 +15,4 @@
 
 \spitfire\core\router\Router::getInstance()->request('/definitions/group/:action?', ['controller' => ['definitions', 'group'], 'action' => ':action']);
 \spitfire\core\router\Router::getInstance()->request('/definitions/setting/:action?', ['controller' => ['definitions', 'setting'], 'action' => ':action']);
+\spitfire\core\router\Router::getInstance()->request('/definitions/computed/:action?', ['controller' => ['definitions', 'computed'], 'action' => ':action']);

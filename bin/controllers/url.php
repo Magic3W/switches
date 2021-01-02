@@ -1,6 +1,11 @@
 <?php
 
+use defer\URLIncinerator;
+use spitfire\core\async\Async;
 use spitfire\exceptions\HTTPMethodException;
+use spitfire\exceptions\PublicException;
+use spitfire\io\XSSToken;
+use spitfire\validation\ValidationException;
 
 /* 
  * The MIT License
@@ -101,7 +106,7 @@ class URLController extends BaseController
 		$url->removed = time();
 		$url->store();
 		
-		#TODO: Create a task to incinerate the old URL once data retention policy expired
+		Async::defer(time() + URLIncinerator::RETENTION, new URLIncinerator($url->_id));
 		
 		$this->view->set('success', true);
 	}
@@ -117,7 +122,7 @@ class URLController extends BaseController
 	 */
 	public function verify(URLModel$url, $confirm = null) {
 		
-		$xsrf = new \spitfire\io\XSSToken();
+		$xsrf = new XSSToken();
 		
 		if ($confirm && $xsrf->verify($confirm)) {
 			

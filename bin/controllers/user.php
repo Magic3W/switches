@@ -27,6 +27,49 @@
 class UserController extends BaseController
 {
 	
+	/**
+	 * The /me method returns information about the currently logged in user, this
+	 * includes information that goes beyond their public profile information and 
+	 * includes additional data like settings.
+	 * 
+	 * Otherwise it's virtually identical to the user/profile endpoint.
+	 * 
+	 * @throws \spitfire\exceptions\PublicException
+	 */
+	public function me() {
+		
+		$user = $this->sso->getUser($this->user->id);
+		$dbuser = UserModel::retrieve($user->getId());
+		
+		#Get the user's settings
+		$dbsettings = db()->table('setting')->get('user', $dbuser)->all();
+		$settings = [];
+		
+		#TODO: It'd be smart to introduce some light caching here since we do have a 
+		#lot of database round trips in here.
+		foreach ($dbsettings as $dbsetting) {
+			$settings[$dbsetting->setting->node->key] = [
+				'type' => $dbsetting->setting->type,
+				'description' => $dbsetting->setting->description,
+				'value' => $dbsetting->value,
+				'updated' => $dbsetting->updated
+			];
+		}
+		
+		$displayname = db()->table('displayname')->get('user', $dbuser)->where('expires', null)->first();
+		$bio         = db()->table('bio')->get('user', $dbuser)->where('expires', null)->first();
+		$avatar      = db()->table('avatar')->get('user', $dbuser)->where('expires', null)->first();
+		$urls        = db()->table('url')->get('user', $dbuser)->where('removed', null)->setOrder('ordinal', 'ASC')->all();
+		
+		$this->view->set('user', $dbuser);
+		$this->view->set('username', $user->getUsername());
+		$this->view->set('avatar', $avatar);
+		$this->view->set('bio', $bio);
+		$this->view->set('displayname', $displayname);
+		$this->view->set('settings', $settings);
+		$this->view->set('urls', $urls);
+	}
+	
 	public function profile($userid) {
 		
 		$user = $this->sso->getUser($userid);
@@ -37,6 +80,7 @@ class UserController extends BaseController
 		$avatar      = db()->table('avatar')->get('user', $dbuser)->where('expires', null)->first();
 		$urls        = db()->table('url')->get('user', $dbuser)->where('removed', null)->setOrder('ordinal', 'ASC')->all();
 		
+		$this->view->set('user', $dbuser);
 		$this->view->set('username', $user->getUsername());
 		$this->view->set('avatar', $avatar);
 		$this->view->set('bio', $bio);

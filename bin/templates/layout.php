@@ -4,6 +4,7 @@
 		<title><?= isset(${'page.title'}) && ${'page.title'}? ${'page.title'} : 'Account server' ?></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="_scss" content="<?= asset('css/_') ?>/js/">
+		<meta name="figure" content="<?= $figure->URL() ?>">
 		<link rel="stylesheet" type="text/css" href="<?= asset('css/app.scss') ?>">
 		<link rel="stylesheet" type="text/css" href="<?= asset('css/ui-layout.scss') ?>">
 		
@@ -45,7 +46,7 @@
 					<div class="has-dropdown" style="display: inline-block">
 						<a href="<?= url('user', $authUser->username) ?>" class="app-switcher" data-toggle="app-drawer">
 							<?php $avatar = db()->table('avatar')->get('user', db()->table('user')->get('_id', $authUser->id)->first())->where('expires', null)->first(); ?>
-							<figure data-src="<?= $avatar->figure ?>:<?= $avatar->secret ?>" data-size="square-s:poster"  width="32" height="32" style="border-radius: 50%; width: 32px; height: 32px;" ></figure>
+							<figure data-src="<?= $avatar->figure ?>:<?= $avatar->secret ?>" data-size="square-s,capped-s"  width="32" height="32" style="border-radius: 50%; width: 32px; height: 32px;" ></figure>
 						</a>
 						<div class="dropdown right-bound unpadded" data-dropdown="app-drawer">
 							<div class="app-drawer">
@@ -193,7 +194,86 @@
 		</script>
 		
 		
-		<script src="<?= $figure->loadJS() ?>"></script>
-		<script>(function () { m3w.figure.load(); } ())</script>
+		<script>
+		(function (figureURL, upgradeElements) { 
+			
+			/**
+			 * This whole section of madness needs to go. Switches must be able to 
+			 * provide a direct location to a user image.
+			 */
+			var canUseWebP = function () {
+				var elem = document.createElement('canvas');
+
+				if (!!(elem.getContext && elem.getContext('2d'))) {
+					 // was able or not to get WebP representation
+					 return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0;
+				}
+
+				// very old browser like IE 8, canvas not supported
+				return false;
+			}();
+			
+			//Upgrades for elements that are images
+			var upgradeImage = function (element, payload) {
+				var replace = element.parentNode.insertBefore(document.createElement('img'), element);
+				var targets = element.dataset.size.split(',');
+				var source  = null;
+				
+				for (var i = 0; i < targets.length; i++) {
+					var target = targets[i];
+					if (!payload[target]) { console.log('Size unavailable: ' + target); continue; }
+					
+					if (payload[target].poster) {
+						for (var j = 0; j < payload[target].poster.length; j++) {
+							var source = document.createElement('source');
+							source.srcset = payload[target].poster[j].url;
+							source.type = payload[target].poster[j].mime;
+							replace.appendChild(source);
+						}
+					}
+					
+					var source = document.createElement('source');
+					source.srcset = payload[target].url;
+					source.type = payload[target].mime;
+					replace.appendChild(source);
+				}
+				
+					
+				var source = document.createElement('img');
+				source.src = element.dataset.fallback || payload['original'].url;
+				source.id = element.id;
+				source.style.cssText = element.style.cssText;
+				replace.appendChild(source);
+				console.log(replace);
+			};
+			
+			//Upgrades
+			var upgrade = function (element) {
+				var id, secret;
+				[id, secret] = element.dataset.src.split(':');
+				
+				var xhr = new XMLHttpRequest();
+				xhr.open('GET', `${figureURL}/upload/retrieve/${id}/${secret}.json`);
+				xhr.onreadystatechange = function () {
+					if (xhr.readyState !== 4) { return; }
+					
+					var json = JSON.parse(xhr.responseText);
+					
+					if (json.payload.type === 'image') {
+						upgradeImage(element, json.payload.media);
+					}
+					
+				};
+				xhr.send();
+			};
+			
+			//Upgrade any figures that could be on screen
+			for (var i = 0; i < upgradeElements.length; i++) {
+				upgrade(upgradeElements[i]);
+			};
+			
+			
+		} (document.querySelector('meta[name="figure"]').content, document.querySelectorAll('figure')));
+		</script>
 	</body>
 </html>

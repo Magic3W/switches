@@ -48,8 +48,8 @@ class SDK
 		return rtrim($this->endpoint, '\/') . '/upload/create.js';
 	}
 	
-	public function loadJS() {
-		return rtrim($this->endpoint, '\/') . '/upload/load.js';
+	public function URL() {
+		return rtrim($this->endpoint, '\/');
 	}
 	
 	public function claim($id, $secret) {

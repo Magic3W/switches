@@ -1,9 +1,5 @@
 <?php
 
-use definitions\SettingModel as ParentModel;
-use spitfire\Model;
-use spitfire\storage\database\Schema;
-
 /* 
  * The MIT License
  *
@@ -28,45 +24,26 @@ use spitfire\storage\database\Schema;
  * THE SOFTWARE.
  */
 
+current_context()->response->getHeaders()->contentType('json');
 
-class SettingModel extends Model
-{
-	
-	/**
-	 * 
-	 * @param Schema $schema
-	 */
-	public function definitions(Schema $schema) {
-		$schema->user = new Reference('user');
-		
-		/**
-		 * The external vs internal indicates what the key for the application is 
-		 * inside switches and what the application wishes to receive (outside switches)
-		 * 
-		 * The mappings IGNORE keys that are scoped (since they are explicitly tailored
-		 * to that application)
-		 */
-		$schema->setting = new Reference(ParentModel::class);
-		$schema->value   = new StringField(1024);
-		
-		/*
-		 * Record when the setting was changed by the user.
-		 */
-		$schema->created = new IntegerField(true);
-		$schema->updated = new IntegerField(true);
-		
-		
-		$schema->index($schema->user, $schema->setting)->unique(true);
-	}
-	
-	public function onbeforesave(): void {
-		parent::onbeforesave();
-		
-		if (!$this->created) {
-			$this->created = time();
-		}
-		
-		$this->updated = time();
-	}
+echo json_encode([
+	'profile'  => [
+		'username' => $username,
 
-}
+		'avatar' => [
+			'figure' => sprintf('%s:%s', $avatar->figure, $avatar->secret),
+			'since'  => $avatar->created
+		],
+		 
+		'settings' => $settings,
+
+		'displayname' => $displayname->name,
+		'bio' => $bio->body,
+		 
+		'urls' => $urls->each(function ($e) { return [
+			'location' => $e->url,
+			'verified' => $e->verified,
+			'created'  => $e->created
+		]; })->toArray()
+	]
+]);

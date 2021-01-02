@@ -47,7 +47,7 @@
  * The top level settings would be more akin to privacy settings and should be 
  * placed appropriately.
  */
-class BlockController extends BaseController
+class PrivacyController extends BaseController
 {
 	
 	/**

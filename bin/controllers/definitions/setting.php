@@ -79,17 +79,17 @@ class SettingController extends BaseController
 		
 		try {
 			if (isset($_POST['caption'])) { 
-				$item->title = $_POST['caption'];
+				$item->caption = $_POST['caption'];
 				$item->store();
 			}
 			
 			if (isset($_POST['description'])) { 
-				$item->title = $_POST['description'];
+				$item->description = $_POST['description'];
 				$item->store();
 			}
 			
 			if (isset($_POST['additional'])) { 
-				$item->title = $_POST['additional'];
+				$item->additional = $_POST['additional'];
 				$item->store();
 			}
 			

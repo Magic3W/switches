@@ -1,0 +1,48 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "b058085fe630851f8f9398ff8a521c54",
+    "packages": [
+        {
+            "name": "magic3w/permission-php-sdk",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://phabricator.magic3w.com/source/permission-PHP-SDK.git",
+                "reference": "872b399182d83caafdc7c142ac089551356974e1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "magic3w\\permission\\sdk\\": "/src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "César de la Cal Bretschneider",
+                    "email": "cesar@magic3w.com"
+                }
+            ],
+            "description": "Allows your application to communicate with a permission server through a simple API",
+            "time": "2020-08-26T15:10:23+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "magic3w/permission-php-sdk": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
+}

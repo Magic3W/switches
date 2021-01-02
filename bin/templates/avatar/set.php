@@ -3,9 +3,9 @@
 	<div class="span l1 align-center">
 		<div style="border-radius: 50%; width: 256px; height: 256px; overflow: hidden; box-shadow: 0 0 5px #CCC; display: grid; align-items: center">
 			<?php if (isset($current)): ?>
-			<figure id="figure-upload-preview" data-src="<?= $current->figure ?>:<?= $current->secret ?>" data-size="square-s,square-s:poster:image/webp, capped-s" style='width: 100%; vertical-align: middle'></figure>
+			<figure id="figure-upload-preview" data-src="<?= $current->figure ?>:<?= $current->secret ?>" data-fallback="<?= url('avatar', 'fallback', $authUser->id)->setExtension('svg') ?>" data-size="square-s,capped-s" style='width: 100%; vertical-align: middle'></figure>
 			<?php elseif ($previous): ?>
-			<figure id="figure-upload-preview" data-src="<?= $previous->figure ?>:<?= $previous->secret ?>" data-size="square-s, square-s:poster:image/webp, capped-s" style='width: 100%; vertical-align: middle'></figure>
+			<figure id="figure-upload-preview" data-src="<?= $previous->figure ?>:<?= $previous->secret ?>" data-fallback="<?= url('avatar', 'fallback', $authUser->id)->setExtension('svg') ?>" data-size="square-s,capped-s" style='width: 100%; vertical-align: middle'></figure>
 			<?php else : ?>
 			<div style="border-radius: 50%; width: 256px; height: 256px; overflow: hidden; box-shadow: 0 0 5px #CCC;">
 				<img src="<?= url('avatar', 'fallback', $authUser->id)->setExtension('svg'); ?>" style="width: 100%">

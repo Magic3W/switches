@@ -1,8 +1,7 @@
-<?php
+<?php namespace defer;
 
-use definitions\SettingModel as ParentModel;
-use spitfire\Model;
-use spitfire\storage\database\Schema;
+use spitfire\core\async\Result;
+use spitfire\core\async\Task;
 
 /* 
  * The MIT License
@@ -28,45 +27,43 @@ use spitfire\storage\database\Schema;
  * THE SOFTWARE.
  */
 
-
-class SettingModel extends Model
+class URLIncinerator extends Task
 {
+	
+	const RETENTION = 86400 * 30;
 	
 	/**
 	 * 
-	 * @param Schema $schema
+	 * @return Result
 	 */
-	public function definitions(Schema $schema) {
-		$schema->user = new Reference('user');
-		
-		/**
-		 * The external vs internal indicates what the key for the application is 
-		 * inside switches and what the application wishes to receive (outside switches)
-		 * 
-		 * The mappings IGNORE keys that are scoped (since they are explicitly tailored
-		 * to that application)
-		 */
-		$schema->setting = new Reference(ParentModel::class);
-		$schema->value   = new StringField(1024);
+	public function body(): Result {
+		$url = db()->table('url')->get('_id', $this->getSettings())->first(true);
 		
 		/*
-		 * Record when the setting was changed by the user.
+		 * In case the URL was not yet removed, the system should log that the 
+		 * URL was queued for incineration even though the removal was never requested.
+		 * 
+		 * This could be due to a bug or an administrative action reinstating the URL.
 		 */
-		$schema->created = new IntegerField(true);
-		$schema->updated = new IntegerField(true);
-		
-		
-		$schema->index($schema->user, $schema->setting)->unique(true);
-	}
-	
-	public function onbeforesave(): void {
-		parent::onbeforesave();
-		
-		if (!$this->created) {
-			$this->created = time();
+		if (!$url->removed) {
+			return new Result('URL was not flagged as removed. Skipped.');
 		}
 		
-		$this->updated = time();
+		/*
+		 * If the URL was not yet ready to be removed, because the retention policy
+		 * expects a removed URL to be maintained for 30 days to allow for administrative
+		 * investigations.
+		 */
+		if ($url->removed + self::RETENTION > time()) {
+			\spitfire\core\async\Async::defer($url->removed + self::RETENTION, $this);
+			return new Result('Policy expects URL to be kept. Defering');
+		}
+		
+		/*
+		 * If the URL was removed and the retention period has expired, we can safely
+		 * remove the URL permanently.
+		 */
+		$url->delete();
 	}
 
 }

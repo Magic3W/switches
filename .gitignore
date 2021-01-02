@@ -6,3 +6,4 @@ Documentation/*
 *.sublime-workspace
 /nbproject/private/
 bin/settings/environments.php
+/vendor/

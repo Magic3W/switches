@@ -1,7 +1,7 @@
 <?php namespace definitions;
 
 use Reference;
-use spitfire\io\beans\IntegerField;
+use IntegerField;
 use spitfire\Model;
 use spitfire\storage\database\Schema;
 use TextField;
