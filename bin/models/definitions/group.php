@@ -42,6 +42,7 @@ class GroupModel extends Model
 		$schema->index($schema->node);
 		
 		$schema->title = new StringField(200);
+		$schema->description = new StringField(255);
 		
 		$schema->icon  = new StringField(200);
 		$schema->secret  = new StringField(256);

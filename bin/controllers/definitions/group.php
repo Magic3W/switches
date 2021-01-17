@@ -84,6 +84,7 @@ class GroupController extends BaseController
 			
 			$item = db()->table('definitions\group')->newRecord();
 			$item->title = $_POST['title'];
+			$item->description = $_POST['description'];
 			$item->node  = $node;
 			
 			$figure->claim($_POST['figure'], $_POST['secret']);
@@ -112,6 +113,7 @@ class GroupController extends BaseController
 		try {
 			if (isset($_POST['title'])) { 
 				$item->title = $_POST['title'];
+				$item->description = $_POST['description'];
 				$item->store();
 			}
 			

@@ -50,6 +50,9 @@
 							<input type="text" name="title" class="frm-ctrl" id="input-url" value="" placeholder="Name...">
 							<input type="hidden" name="figure" id="input-figure">
 							<input type="hidden" name="secret" id="input-secret">
+							
+							<div class="spacer medium"></div>
+							<textarea class="frm-ctrl" name="description" placeholder="" id="input-description"></textarea>
 						</div>
 					</div>
 

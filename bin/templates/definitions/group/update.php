@@ -47,6 +47,9 @@
 							<span class="text:grey-500" style="font-size: .9rem">Enter a name for your section</span>
 							<div class="spacer minuscule"></div>
 							<input type="text" name="title" class="frm-ctrl" id="input-url" value="<?= _q(_e($item->title)) ?>" placeholder="Name...">
+							
+							<div class="spacer medium"></div>
+							<textarea class="frm-ctrl" name="description" placeholder="" id="input-description"><?= _q(_e($item->description)) ?></textarea>
 						</div>
 					</div>
 
