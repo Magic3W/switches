@@ -71,6 +71,13 @@ class ComputedModel extends Model
 		 */
 		$schema->transform = new TextField();
 		
+		/*
+		 * If the computed setting does not wish to let the user override the setting,
+		 * the application can remove it from the user defined settings.
+		 * 
+		 * These settings will ignore user defined settings and instead just render
+		 * the computed setting every time.
+		 */
 		$schema->hidden    = new \BooleanField();
 	}
 

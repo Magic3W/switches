@@ -38,7 +38,9 @@
 						<div class="text:grey-500"><?= _e($group->description) ?></div>
 					</div>
 				</div>
-				<?php elseif ($setting = db()->table('definitions\setting')->get('node', $node)->first()): ?>
+				<?php elseif (null !== ($setting = db()->table('definitions\setting')->get('node', $node)->first()) && 
+						  /* Computed settings that are not allowed to be overridden, should not be listed */
+						  !db()->table('definitions\computed')->where('target', $setting)->where('hidden', true)->first()): ?>
 				<div class="row l10">
 					<div class="span l1">
 						<div style="border-radius: 50%; width: 64px; height: 64px; overflow: hidden;">

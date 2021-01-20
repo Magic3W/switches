@@ -42,17 +42,40 @@ class UserController extends BaseController
 		$dbuser = UserModel::retrieve($user->getId());
 		
 		#Get the user's settings
-		$dbsettings = db()->table('setting')->get('user', $dbuser)->all();
+		$dbsettings = db()->table('definitions\setting')->getAll()->all();
 		$settings = [];
 		
 		#TODO: It'd be smart to introduce some light caching here since we do have a 
 		#lot of database round trips in here.
 		foreach ($dbsettings as $dbsetting) {
+			$computed = db()->table('definitions\computed')->get('setting', $dbsetting)->all();
+			$preference = db()->table('setting')->get('user', $dbuser)->where('setting', $dbsetting)->all();
+			
+			$value = $dbsetting->default;
+			
+			/*
+			 * The administration may have defined a computed setting, which causes 
+			 * the system to retrieve another setting and replace it within the app.
+			 */
+			if ($computed) { 
+				$source = db()->table('setting')->get('user', $user)->where('setting', $computed->source)->first();
+				$dictionary = json_decode($computed->transform, true);
+				$original = $source? $source->value : $computed->source->default;
+				$value = $dictionary[$original]?? $original;
+			}
+			
+			/*
+			 * If the setting is set by the user, and the system has not prohibited
+			 * it by policy, we override the computed setting with the user defined
+			 * setting.
+			 */
+			if ($preference && !($computed && $computed->hidden)) { $value = $preference->value; }
+			
 			$settings[$dbsetting->setting->node->key] = [
-				'type' => $dbsetting->setting->type,
-				'description' => $dbsetting->setting->description,
-				'value' => $dbsetting->value,
-				'updated' => $dbsetting->updated
+				'type' => $dbsetting->type,
+				'description' => $dbsetting->description,
+				'value' => $value,
+				'updated' => $preference->updated
 			];
 		}
 		

@@ -47,7 +47,7 @@ class SettingController extends BaseController
 	 * @param SettingModel $setting This variable is only used in get scenarios
 	 * @throws HTTPMethodException
 	 */
-	public function set(SettingModel$setting = null) {
+	public function set(SettingModel $setting = null) {
 		
 		try {
 			if (!$this->request->isPost()) { throw new HTTPMethodException(); }

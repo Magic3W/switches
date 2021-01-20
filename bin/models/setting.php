@@ -1,6 +1,9 @@
 <?php
 
 use definitions\SettingModel as ParentModel;
+use figure\SDK as Figure;
+use spitfire\core\Environment;
+use spitfire\exceptions\PublicException;
 use spitfire\Model;
 use spitfire\storage\database\Schema;
 
@@ -57,6 +60,51 @@ class SettingModel extends Model
 		
 		
 		$schema->index($schema->user, $schema->setting)->unique(true);
+	}
+	
+	/**
+	 * Magic set method. This is used to validate input to the value whenever 
+	 * it is modified.
+	 * 
+	 * @todo This should be refactored into a proper validation mechanism, but it
+	 * does the trick for now.
+	 * @param type $field
+	 * @param type $value
+	 * @return type
+	 * @throws PublicException	
+ */
+	public function __set($field, $value) 
+	{
+		#If the application is trying to write the value, we need to verify it's
+		#a valid value
+		if ($field === 'value') {
+			switch ($this->setting->type) {
+				case 'enum':
+					$options = json_decode($this->setting->additional, true);
+					if (array_search($value, array_keys($options)) === false) { throw new PublicException('Validation failed', 400); }
+					break;
+				case 'boolean':
+					$value = !!$value;
+					break;
+				case 'media': 
+					#TODO: Claim the upload
+					$figure = new Figure($this->sso, Environment::get('figure'));
+					$figure->delete(explode(':', $this->value)[0]);
+					$figure->claim($value['figure'], $value['secret']);
+					break;
+				/*
+				 * External data can only be set in the exact same manner as a string.
+				 * Also note that the external should NOT be considered a safe location
+				 * to place data into, the user may be able to manipulate this.
+				 */
+				case 'external':
+				case 'string':
+					if (!is_string($value)) { throw new PublicException('Validation failed. Only strings are allowed', 400); }
+					break;
+			}
+		}
+		
+		return parent::__set($field, $value);
 	}
 	
 	public function onbeforesave(): void {
