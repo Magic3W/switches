@@ -52,6 +52,8 @@
 							<div class="spacer small"></div>
 							<textarea name="description" class="frm-ctrl" placeholder="Description..."><?= _e($item->description) ?></textarea>
 							<div class="spacer small"></div>
+							<textarea name="default" class="frm-ctrl" placeholder="Default value..."><?= _e($item->default) ?></textarea>
+							<div class="spacer small"></div>
 							<textarea name="additional" class="frm-ctrl" placeholder="Additional information..."><?= _e($item->additional) ?></textarea>
 						</div>
 					</div>

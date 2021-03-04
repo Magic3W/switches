@@ -58,6 +58,12 @@ class SettingModel extends Model
 		 */
 		$schema->caption = new StringField(150);
 		$schema->description = new TextField();
+		
+		/*
+		 * The default allows the operator to define a default value for the setting
+		 * that will be used if the user did not provide a value.
+		 */
+		$schema->default = new StringField(1024);
 		$schema->type = new EnumField('string', 'enum', 'boolean', 'external', 'media');
 		
 		/**

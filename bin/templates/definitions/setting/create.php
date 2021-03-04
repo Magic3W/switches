@@ -60,6 +60,8 @@
 							</select>
 							<div class="spacer small"></div>
 							<textarea name="additional" class="frm-ctrl" value="" placeholder="Additional information..."></textarea>
+							<div class="spacer small"></div>
+							<textarea name="default" class="frm-ctrl" placeholder="Default value..."></textarea>
 							<input type="hidden" name="figure" id="input-figure">
 							<input type="hidden" name="secret" id="input-secret">
 						</div>

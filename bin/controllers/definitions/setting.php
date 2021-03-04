@@ -48,6 +48,7 @@ class SettingController extends BaseController
 			$node->store();
 			
 			$item = db()->table('definitions\setting')->newRecord();
+			$item->default = $_POST['default'];
 			$item->caption = $_POST['title'];
 			$item->description = $_POST['description'];
 			$item->type = $_POST['type'];
@@ -96,6 +97,11 @@ class SettingController extends BaseController
 			if (isset($_POST['parent'])) { 
 				$item->node->parent = db()->table('definitions\group')->get('_id', $_POST['parent'])->first()->node;
 				$item->node->store();
+			}
+			
+			if (isset($_POST['default'])) { 
+				$item->default = $_POST['default'];
+				$item->store();
 			}
 			
 			
