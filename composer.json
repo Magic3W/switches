@@ -2,7 +2,7 @@
 	"name": "magic3w/switches",
 	"description": "Switches provides user profiles, configuration and privacy settings for m3w micro service environments",
 	"type": "project",
-	"license": "MIT",
+	"license": "GPL",
 	"minimum-stability": "dev",
 	"prefer-stable": true,
 	"authors": [
@@ -15,5 +15,16 @@
 		"magic3w/permission-php-sdk": "dev-master",
 		"magic3w/figure-sdk-php": "dev-master",
 		"magic3w/phpauth-sdk-php": "^0.1.1"
+	},
+	"require-dev": {
+		"phpstan/phpstan": "^0.12.82"
+	},
+    "scripts" : {
+		"test" : [
+			"./vendor/bin/phpstan analyse bin --level 5"
+		],
+		"baseline" : [
+			"./vendor/bin/phpstan analyse bin --level 5 --generate-baseline"
+		]
 	}
 }

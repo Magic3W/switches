@@ -1,0 +1,927 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Property BaseController\\:\\:\\$ping has unknown class ping\\\\Ping as its type\\.$#"
+			count: 1
+			path: bin/classes/BaseController.php
+
+		-
+			message: "#^Property BaseController\\:\\:\\$chad has unknown class chad\\\\Chad as its type\\.$#"
+			count: 1
+			path: bin/classes/BaseController.php
+
+		-
+			message: "#^Property BaseController\\:\\:\\$sso \\(auth\\\\SSO\\) does not accept auth\\\\SSOCache\\.$#"
+			count: 1
+			path: bin/classes/BaseController.php
+
+		-
+			message: "#^Call to an undefined method auth\\\\SSOCache\\:\\:makeToken\\(\\)\\.$#"
+			count: 1
+			path: bin/classes/BaseController.php
+
+		-
+			message: "#^Property BaseController\\:\\:\\$user \\(object\\) does not accept bool\\|null\\.$#"
+			count: 1
+			path: bin/classes/BaseController.php
+
+		-
+			message: "#^Call to an undefined method auth\\\\SSOCache\\:\\:authApp\\(\\)\\.$#"
+			count: 1
+			path: bin/classes/BaseController.php
+
+		-
+			message: "#^Variable \\$signatures might not be defined\\.$#"
+			count: 1
+			path: bin/classes/auth/AppAuthentication.php
+
+		-
+			message: "#^Call to method getPath\\(\\) on an unknown class auth\\\\Settings\\.$#"
+			count: 1
+			path: bin/classes/auth/SSO.php
+
+		-
+			message: "#^Call to method getPort\\(\\) on an unknown class auth\\\\Settings\\.$#"
+			count: 1
+			path: bin/classes/auth/SSO.php
+
+		-
+			message: "#^Call to method getProtocol\\(\\) on an unknown class auth\\\\Settings\\.$#"
+			count: 1
+			path: bin/classes/auth/SSO.php
+
+		-
+			message: "#^Call to method getServer\\(\\) on an unknown class auth\\\\Settings\\.$#"
+			count: 1
+			path: bin/classes/auth/SSO.php
+
+		-
+			message: "#^Call to method getUser\\(\\) on an unknown class auth\\\\Settings\\.$#"
+			count: 1
+			path: bin/classes/auth/SSO.php
+
+		-
+			message: "#^Call to method getPassword\\(\\) on an unknown class auth\\\\Settings\\.$#"
+			count: 1
+			path: bin/classes/auth/SSO.php
+
+		-
+			message: "#^Instanceof between string\\|null and auth\\\\Token will always evaluate to false\\.$#"
+			count: 1
+			path: bin/classes/auth/SSO.php
+
+		-
+			message: "#^Variable \\$http_response_header in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: bin/classes/auth/Token.php
+
+		-
+			message: "#^Parameter \\$url of method auth\\\\URLReflection\\:\\:fromURL\\(\\) has invalid typehint type auth\\\\Settings\\.$#"
+			count: 1
+			path: bin/classes/auth/URLReflection.php
+
+		-
+			message: "#^Return typehint of method auth\\\\URLReflection\\:\\:fromURL\\(\\) has invalid type auth\\\\Settings\\.$#"
+			count: 1
+			path: bin/classes/auth/URLReflection.php
+
+		-
+			message: "#^Class auth\\\\URLReflection constructor invoked with 8 parameters, 7 required\\.$#"
+			count: 1
+			path: bin/classes/auth/URLReflection.php
+
+		-
+			message: "#^Method defer\\\\URLIncinerator\\:\\:body\\(\\) should return spitfire\\\\core\\\\async\\\\Result but return statement is missing\\.$#"
+			count: 1
+			path: bin/classes/defer/URLIncinerator.php
+
+		-
+			message: "#^Call to method getPath\\(\\) on an unknown class figure\\\\Settings\\.$#"
+			count: 1
+			path: bin/classes/figure/SDK.php
+
+		-
+			message: "#^Call to method getPort\\(\\) on an unknown class figure\\\\Settings\\.$#"
+			count: 1
+			path: bin/classes/figure/SDK.php
+
+		-
+			message: "#^Call to method getProtocol\\(\\) on an unknown class figure\\\\Settings\\.$#"
+			count: 1
+			path: bin/classes/figure/SDK.php
+
+		-
+			message: "#^Call to method getServer\\(\\) on an unknown class figure\\\\Settings\\.$#"
+			count: 1
+			path: bin/classes/figure/SDK.php
+
+		-
+			message: "#^Call to method getUser\\(\\) on an unknown class figure\\\\Settings\\.$#"
+			count: 1
+			path: bin/classes/figure/SDK.php
+
+		-
+			message: "#^Call to sprintf contains 2 placeholders, 3 values given\\.$#"
+			count: 1
+			path: bin/classes/figure/SDK.php
+
+		-
+			message: "#^Undefined variable\\: \\$secret$#"
+			count: 1
+			path: bin/classes/figure/SDK.php
+
+		-
+			message: "#^Parameter \\$url of method figure\\\\URLReflection\\:\\:fromURL\\(\\) has invalid typehint type figure\\\\Settings\\.$#"
+			count: 1
+			path: bin/classes/figure/URLReflection.php
+
+		-
+			message: "#^Return typehint of method figure\\\\URLReflection\\:\\:fromURL\\(\\) has invalid type figure\\\\Settings\\.$#"
+			count: 1
+			path: bin/classes/figure/URLReflection.php
+
+		-
+			message: "#^Class figure\\\\URLReflection constructor invoked with 8 parameters, 7 required\\.$#"
+			count: 1
+			path: bin/classes/figure/URLReflection.php
+
+		-
+			message: "#^Negated boolean expression is always true\\.$#"
+			count: 1
+			path: bin/classes/signature/Signature.php
+
+		-
+			message: "#^Result of \\|\\| is always true\\.$#"
+			count: 1
+			path: bin/classes/signature/Signature.php
+
+		-
+			message: "#^Parameter \\#5 \\$context of class signature\\\\Signature constructor expects string, array\\<int, string\\> given\\.$#"
+			count: 1
+			path: bin/classes/signature/Signature.php
+
+		-
+			message: "#^Parameter \\#7 \\$salt of class signature\\\\Signature constructor expects string\\|null, signature\\\\Checksum given\\.$#"
+			count: 1
+			path: bin/classes/signature/Signature.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$task\\.$#"
+			count: 1
+			path: bin/classes/spitfire/core/async/AsyncModel.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$result\\.$#"
+			count: 1
+			path: bin/classes/spitfire/core/async/AsyncModel.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$status\\.$#"
+			count: 1
+			path: bin/classes/spitfire/core/async/AsyncModel.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$ttl\\.$#"
+			count: 1
+			path: bin/classes/spitfire/core/async/AsyncModel.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$started\\.$#"
+			count: 1
+			path: bin/classes/spitfire/core/async/AsyncModel.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$scheduled\\.$#"
+			count: 1
+			path: bin/classes/spitfire/core/async/AsyncModel.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$supersedes\\.$#"
+			count: 1
+			path: bin/classes/spitfire/core/async/AsyncModel.php
+
+		-
+			message: "#^Method spitfire\\\\core\\\\async\\\\AsyncModel\\:\\:definitions\\(\\) should return spitfire\\\\storage\\\\database\\\\Schema but return statement is missing\\.$#"
+			count: 1
+			path: bin/classes/spitfire/core/async/AsyncModel.php
+
+		-
+			message: "#^Class publicException referenced with incorrect case\\: PublicException\\.$#"
+			count: 1
+			path: bin/controllers/account.php
+
+		-
+			message: "#^Negated boolean expression is always false\\.$#"
+			count: 1
+			path: bin/controllers/avatar.php
+
+		-
+			message: "#^Negated boolean expression is always false\\.$#"
+			count: 1
+			path: bin/controllers/banner.php
+
+		-
+			message: "#^Negated boolean expression is always false\\.$#"
+			count: 1
+			path: bin/controllers/bio.php
+
+		-
+			message: "#^Class publicException referenced with incorrect case\\: PublicException\\.$#"
+			count: 1
+			path: bin/controllers/bio.php
+
+		-
+			message: "#^Access to an undefined property definitions\\\\ComputedModel\\:\\:\\$app\\.$#"
+			count: 1
+			path: bin/controllers/definitions/computed.php
+
+		-
+			message: "#^Access to an undefined property definitions\\\\ComputedModel\\:\\:\\$source\\.$#"
+			count: 1
+			path: bin/controllers/definitions/computed.php
+
+		-
+			message: "#^Access to an undefined property definitions\\\\ComputedModel\\:\\:\\$target\\.$#"
+			count: 1
+			path: bin/controllers/definitions/computed.php
+
+		-
+			message: "#^Access to an undefined property definitions\\\\ComputedModel\\:\\:\\$hidden\\.$#"
+			count: 1
+			path: bin/controllers/definitions/computed.php
+
+		-
+			message: "#^Access to an undefined property definitions\\\\GroupModel\\:\\:\\$node\\.$#"
+			count: 7
+			path: bin/controllers/definitions/group.php
+
+		-
+			message: "#^Access to an undefined property definitions\\\\GroupModel\\:\\:\\$title\\.$#"
+			count: 1
+			path: bin/controllers/definitions/group.php
+
+		-
+			message: "#^Access to an undefined property definitions\\\\GroupModel\\:\\:\\$description\\.$#"
+			count: 1
+			path: bin/controllers/definitions/group.php
+
+		-
+			message: "#^PHPDoc tag @throws with type definitions\\\\PublicException is not subtype of Throwable$#"
+			count: 1
+			path: bin/controllers/definitions/group.php
+
+		-
+			message: "#^Negated boolean expression is always false\\.$#"
+			count: 1
+			path: bin/controllers/definitions/group.php
+
+		-
+			message: "#^Instantiated class definitions\\\\PublicException not found\\.$#"
+			count: 2
+			path: bin/controllers/definitions/group.php
+
+		-
+			message: "#^Throwing object of an unknown class definitions\\\\PublicException\\.$#"
+			count: 2
+			path: bin/controllers/definitions/group.php
+
+		-
+			message: "#^Access to an undefined property definitions\\\\GroupModel\\:\\:\\$node\\.$#"
+			count: 1
+			path: bin/controllers/definitions/setting.php
+
+		-
+			message: "#^Access to an undefined property definitions\\\\SettingModel\\:\\:\\$caption\\.$#"
+			count: 1
+			path: bin/controllers/definitions/setting.php
+
+		-
+			message: "#^Access to an undefined property definitions\\\\SettingModel\\:\\:\\$description\\.$#"
+			count: 1
+			path: bin/controllers/definitions/setting.php
+
+		-
+			message: "#^Access to an undefined property definitions\\\\SettingModel\\:\\:\\$additional\\.$#"
+			count: 1
+			path: bin/controllers/definitions/setting.php
+
+		-
+			message: "#^Access to an undefined property definitions\\\\SettingModel\\:\\:\\$node\\.$#"
+			count: 4
+			path: bin/controllers/definitions/setting.php
+
+		-
+			message: "#^Negated boolean expression is always false\\.$#"
+			count: 1
+			path: bin/controllers/displayname.php
+
+		-
+			message: "#^Class publicException referenced with incorrect case\\: PublicException\\.$#"
+			count: 1
+			path: bin/controllers/displayname.php
+
+		-
+			message: "#^Parameter \\$username of method PrivacyController\\:\\:remove\\(\\) has invalid typehint type type\\.$#"
+			count: 1
+			path: bin/controllers/privacy.php
+
+		-
+			message: "#^Negated boolean expression is always false\\.$#"
+			count: 1
+			path: bin/controllers/setting.php
+
+		-
+			message: "#^Negated boolean expression is always false\\.$#"
+			count: 2
+			path: bin/controllers/url.php
+
+		-
+			message: "#^Parameter \\#3 \\$errors of class spitfire\\\\validation\\\\ValidationException constructor expects array\\<spitfire\\\\validation\\\\ValidationError\\>, array\\<int, string\\> given\\.$#"
+			count: 1
+			path: bin/controllers/url.php
+
+		-
+			message: "#^Undefined variable\\: \\$url$#"
+			count: 1
+			path: bin/controllers/url.php
+
+		-
+			message: "#^Access to an undefined property URLModel\\:\\:\\$user\\.$#"
+			count: 1
+			path: bin/controllers/url.php
+
+		-
+			message: "#^Access to an undefined property URLModel\\:\\:\\$removed\\.$#"
+			count: 1
+			path: bin/controllers/url.php
+
+		-
+			message: "#^Access to an undefined property URLModel\\:\\:\\$_id\\.$#"
+			count: 2
+			path: bin/controllers/url.php
+
+		-
+			message: "#^Parameter \\$confirm of method URLController\\:\\:verify\\(\\) has invalid typehint type type\\.$#"
+			count: 1
+			path: bin/controllers/url.php
+
+		-
+			message: "#^Return typehint of method URLController\\:\\:verify\\(\\) has invalid type type\\.$#"
+			count: 1
+			path: bin/controllers/url.php
+
+		-
+			message: "#^Access to an undefined property URLModel\\:\\:\\$requested\\.$#"
+			count: 1
+			path: bin/controllers/url.php
+
+		-
+			message: "#^Access to an undefined property URLModel\\:\\:\\$url\\.$#"
+			count: 1
+			path: bin/controllers/url.php
+
+		-
+			message: "#^Access to an undefined property URLModel\\:\\:\\$secret\\.$#"
+			count: 1
+			path: bin/controllers/url.php
+
+		-
+			message: "#^Access to an undefined property URLModel\\:\\:\\$verified\\.$#"
+			count: 1
+			path: bin/controllers/url.php
+
+		-
+			message: "#^Method URLController\\:\\:verify\\(\\) should return type but empty return statement found\\.$#"
+			count: 1
+			path: bin/controllers/url.php
+
+		-
+			message: "#^Method URLController\\:\\:verify\\(\\) should return type but return statement is missing\\.$#"
+			count: 1
+			path: bin/controllers/url.php
+
+		-
+			message: "#^Variable \\$message might not be defined\\.$#"
+			count: 1
+			path: bin/error_pages/500.php
+
+		-
+			message: "#^Variable \\$moreInfo might not be defined\\.$#"
+			count: 1
+			path: bin/error_pages/500.php
+
+		-
+			message: "#^Variable \\$code might not be defined\\.$#"
+			count: 2
+			path: bin/error_pages/default.json.php
+
+		-
+			message: "#^Variable \\$exception might not be defined\\.$#"
+			count: 1
+			path: bin/error_pages/default.json.php
+
+		-
+			message: "#^Variable \\$message might not be defined\\.$#"
+			count: 2
+			path: bin/error_pages/default.json.php
+
+		-
+			message: "#^Variable \\$code might not be defined\\.$#"
+			count: 1
+			path: bin/error_pages/default.php
+
+		-
+			message: "#^Variable \\$message might not be defined\\.$#"
+			count: 2
+			path: bin/error_pages/default.php
+
+		-
+			message: "#^Parameter \\#2 \\$newvalue of function ini_set expects string, true given\\.$#"
+			count: 1
+			path: bin/error_pages/default.php
+
+		-
+			message: "#^Variable \\$exception might not be defined\\.$#"
+			count: 1
+			path: bin/error_pages/default.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$user\\.$#"
+			count: 1
+			path: bin/models/avatar.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$figure\\.$#"
+			count: 1
+			path: bin/models/avatar.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$secret\\.$#"
+			count: 1
+			path: bin/models/avatar.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$created\\.$#"
+			count: 1
+			path: bin/models/avatar.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$expires\\.$#"
+			count: 1
+			path: bin/models/avatar.php
+
+		-
+			message: "#^Method AvatarModel\\:\\:definitions\\(\\) should return spitfire\\\\storage\\\\database\\\\Schema but return statement is missing\\.$#"
+			count: 1
+			path: bin/models/avatar.php
+
+		-
+			message: "#^Access to an undefined property AvatarModel\\:\\:\\$created\\.$#"
+			count: 1
+			path: bin/models/avatar.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$user\\.$#"
+			count: 1
+			path: bin/models/banner.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$figure\\.$#"
+			count: 1
+			path: bin/models/banner.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$secret\\.$#"
+			count: 1
+			path: bin/models/banner.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$created\\.$#"
+			count: 1
+			path: bin/models/banner.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$expires\\.$#"
+			count: 1
+			path: bin/models/banner.php
+
+		-
+			message: "#^Method BannerModel\\:\\:definitions\\(\\) should return spitfire\\\\storage\\\\database\\\\Schema but return statement is missing\\.$#"
+			count: 1
+			path: bin/models/banner.php
+
+		-
+			message: "#^Access to an undefined property BannerModel\\:\\:\\$created\\.$#"
+			count: 1
+			path: bin/models/banner.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$user\\.$#"
+			count: 1
+			path: bin/models/bio.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$body\\.$#"
+			count: 1
+			path: bin/models/bio.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$created\\.$#"
+			count: 1
+			path: bin/models/bio.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$expires\\.$#"
+			count: 1
+			path: bin/models/bio.php
+
+		-
+			message: "#^Method BioModel\\:\\:definitions\\(\\) should return spitfire\\\\storage\\\\database\\\\Schema but return statement is missing\\.$#"
+			count: 1
+			path: bin/models/bio.php
+
+		-
+			message: "#^Access to an undefined property BioModel\\:\\:\\$created\\.$#"
+			count: 1
+			path: bin/models/bio.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$app\\.$#"
+			count: 1
+			path: bin/models/definitions/computed.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$source\\.$#"
+			count: 1
+			path: bin/models/definitions/computed.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$target\\.$#"
+			count: 1
+			path: bin/models/definitions/computed.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$transform\\.$#"
+			count: 1
+			path: bin/models/definitions/computed.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$hidden\\.$#"
+			count: 1
+			path: bin/models/definitions/computed.php
+
+		-
+			message: "#^Method definitions\\\\ComputedModel\\:\\:definitions\\(\\) should return spitfire\\\\storage\\\\database\\\\Schema but return statement is missing\\.$#"
+			count: 1
+			path: bin/models/definitions/computed.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$node\\.$#"
+			count: 1
+			path: bin/models/definitions/group.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$title\\.$#"
+			count: 1
+			path: bin/models/definitions/group.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$description\\.$#"
+			count: 1
+			path: bin/models/definitions/group.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$icon\\.$#"
+			count: 1
+			path: bin/models/definitions/group.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$secret\\.$#"
+			count: 1
+			path: bin/models/definitions/group.php
+
+		-
+			message: "#^Method definitions\\\\GroupModel\\:\\:definitions\\(\\) should return spitfire\\\\storage\\\\database\\\\Schema but return statement is missing\\.$#"
+			count: 1
+			path: bin/models/definitions/group.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$parent\\.$#"
+			count: 1
+			path: bin/models/definitions/node.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$ordinal\\.$#"
+			count: 1
+			path: bin/models/definitions/node.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$readonly\\.$#"
+			count: 1
+			path: bin/models/definitions/node.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$source\\.$#"
+			count: 1
+			path: bin/models/definitions/node.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$created\\.$#"
+			count: 1
+			path: bin/models/definitions/node.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$updated\\.$#"
+			count: 1
+			path: bin/models/definitions/node.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$deleted\\.$#"
+			count: 1
+			path: bin/models/definitions/node.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$key\\.$#"
+			count: 1
+			path: bin/models/definitions/node.php
+
+		-
+			message: "#^Method definitions\\\\NodeModel\\:\\:definitions\\(\\) should return spitfire\\\\storage\\\\database\\\\Schema but return statement is missing\\.$#"
+			count: 1
+			path: bin/models/definitions/node.php
+
+		-
+			message: "#^Access to an undefined property definitions\\\\NodeModel\\:\\:\\$parent\\.$#"
+			count: 1
+			path: bin/models/definitions/node.php
+
+		-
+			message: "#^Access to an undefined property definitions\\\\NodeModel\\:\\:\\$ordinal\\.$#"
+			count: 1
+			path: bin/models/definitions/node.php
+
+		-
+			message: "#^Access to an undefined property definitions\\\\NodeModel\\:\\:\\$created\\.$#"
+			count: 1
+			path: bin/models/definitions/node.php
+
+		-
+			message: "#^Access to an undefined property definitions\\\\NodeModel\\:\\:\\$updated\\.$#"
+			count: 1
+			path: bin/models/definitions/node.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$node\\.$#"
+			count: 1
+			path: bin/models/definitions/setting.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$scope\\.$#"
+			count: 1
+			path: bin/models/definitions/setting.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$caption\\.$#"
+			count: 1
+			path: bin/models/definitions/setting.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$description\\.$#"
+			count: 1
+			path: bin/models/definitions/setting.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$type\\.$#"
+			count: 1
+			path: bin/models/definitions/setting.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$additional\\.$#"
+			count: 1
+			path: bin/models/definitions/setting.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$icon\\.$#"
+			count: 1
+			path: bin/models/definitions/setting.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$secret\\.$#"
+			count: 1
+			path: bin/models/definitions/setting.php
+
+		-
+			message: "#^Method definitions\\\\SettingModel\\:\\:definitions\\(\\) should return spitfire\\\\storage\\\\database\\\\Schema but return statement is missing\\.$#"
+			count: 1
+			path: bin/models/definitions/setting.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$user\\.$#"
+			count: 1
+			path: bin/models/displayname.php
+
+		-
+			message: "#^Access to private property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$name\\.$#"
+			count: 1
+			path: bin/models/displayname.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$created\\.$#"
+			count: 1
+			path: bin/models/displayname.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$expires\\.$#"
+			count: 1
+			path: bin/models/displayname.php
+
+		-
+			message: "#^Method DisplayNameModel\\:\\:definitions\\(\\) should return spitfire\\\\storage\\\\database\\\\Schema but return statement is missing\\.$#"
+			count: 1
+			path: bin/models/displayname.php
+
+		-
+			message: "#^Access to an undefined property DisplayNameModel\\:\\:\\$created\\.$#"
+			count: 1
+			path: bin/models/displayname.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$user\\.$#"
+			count: 1
+			path: bin/models/setting.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$setting\\.$#"
+			count: 1
+			path: bin/models/setting.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$value\\.$#"
+			count: 1
+			path: bin/models/setting.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$created\\.$#"
+			count: 1
+			path: bin/models/setting.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$updated\\.$#"
+			count: 1
+			path: bin/models/setting.php
+
+		-
+			message: "#^Method SettingModel\\:\\:definitions\\(\\) should return spitfire\\\\storage\\\\database\\\\Schema but return statement is missing\\.$#"
+			count: 1
+			path: bin/models/setting.php
+
+		-
+			message: "#^Parameter \\$field of method SettingModel\\:\\:__set\\(\\) has invalid typehint type type\\.$#"
+			count: 1
+			path: bin/models/setting.php
+
+		-
+			message: "#^Parameter \\$value of method SettingModel\\:\\:__set\\(\\) has invalid typehint type type\\.$#"
+			count: 1
+			path: bin/models/setting.php
+
+		-
+			message: "#^Return typehint of method SettingModel\\:\\:__set\\(\\) has invalid type type\\.$#"
+			count: 1
+			path: bin/models/setting.php
+
+		-
+			message: "#^Strict comparison using \\=\\=\\= between type and 'value' will always evaluate to false\\.$#"
+			count: 1
+			path: bin/models/setting.php
+
+		-
+			message: "#^Access to an undefined property SettingModel\\:\\:\\$setting\\.$#"
+			count: 2
+			path: bin/models/setting.php
+
+		-
+			message: "#^Negated boolean expression is always false\\.$#"
+			count: 1
+			path: bin/models/setting.php
+
+		-
+			message: "#^Access to an undefined property SettingModel\\:\\:\\$sso\\.$#"
+			count: 1
+			path: bin/models/setting.php
+
+		-
+			message: "#^Access to an undefined property SettingModel\\:\\:\\$value\\.$#"
+			count: 1
+			path: bin/models/setting.php
+
+		-
+			message: "#^Access to offset 'figure' on an unknown class type\\.$#"
+			count: 1
+			path: bin/models/setting.php
+
+		-
+			message: "#^Access to offset 'secret' on an unknown class type\\.$#"
+			count: 1
+			path: bin/models/setting.php
+
+		-
+			message: "#^Call to function is_string\\(\\) with type will always evaluate to false\\.$#"
+			count: 1
+			path: bin/models/setting.php
+
+		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 1
+			path: bin/models/setting.php
+
+		-
+			message: "#^Access to an undefined property SettingModel\\:\\:\\$created\\.$#"
+			count: 1
+			path: bin/models/setting.php
+
+		-
+			message: "#^Access to an undefined property SettingModel\\:\\:\\$updated\\.$#"
+			count: 1
+			path: bin/models/setting.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$user\\.$#"
+			count: 1
+			path: bin/models/url.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$ordinal\\.$#"
+			count: 1
+			path: bin/models/url.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$url\\.$#"
+			count: 1
+			path: bin/models/url.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$secret\\.$#"
+			count: 1
+			path: bin/models/url.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$created\\.$#"
+			count: 1
+			path: bin/models/url.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$verified\\.$#"
+			count: 1
+			path: bin/models/url.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$requested\\.$#"
+			count: 1
+			path: bin/models/url.php
+
+		-
+			message: "#^Access to an undefined property spitfire\\\\storage\\\\database\\\\Schema\\:\\:\\$removed\\.$#"
+			count: 1
+			path: bin/models/url.php
+
+		-
+			message: "#^Method URLModel\\:\\:definitions\\(\\) should return spitfire\\\\storage\\\\database\\\\Schema but return statement is missing\\.$#"
+			count: 1
+			path: bin/models/url.php
+
+		-
+			message: "#^Access to an undefined property URLModel\\:\\:\\$created\\.$#"
+			count: 1
+			path: bin/models/url.php
+
+		-
+			message: "#^Access to an undefined property URLModel\\:\\:\\$secret\\.$#"
+			count: 1
+			path: bin/models/url.php
+
+		-
+			message: "#^Access to an undefined property URLModel\\:\\:\\$ordinal\\.$#"
+			count: 1
+			path: bin/models/url.php
+
+		-
+			message: "#^Method UserModel\\:\\:definitions\\(\\) should return spitfire\\\\storage\\\\database\\\\Schema but return statement is missing\\.$#"
+			count: 1
+			path: bin/models/user.php
+
+		-
+			message: "#^Parameter \\#2 \\$target of method spitfire\\\\core\\\\router\\\\Routable\\:\\:request\\(\\) expects array\\<string\\>\\|Closure\\|string, array\\('controller' \\=\\> array\\('definitions', 'group'\\), 'action' \\=\\> '\\:action'\\) given\\.$#"
+			count: 1
+			path: bin/settings/routes.php
+
+		-
+			message: "#^Parameter \\#2 \\$target of method spitfire\\\\core\\\\router\\\\Routable\\:\\:request\\(\\) expects array\\<string\\>\\|Closure\\|string, array\\('controller' \\=\\> array\\('definitions', 'setting'\\), 'action' \\=\\> '\\:action'\\) given\\.$#"
+			count: 1
+			path: bin/settings/routes.php
+
+		-
+			message: "#^Parameter \\#2 \\$target of method spitfire\\\\core\\\\router\\\\Routable\\:\\:request\\(\\) expects array\\<string\\>\\|Closure\\|string, array\\('controller' \\=\\> array\\('definitions', 'computed'\\), 'action' \\=\\> '\\:action'\\) given\\.$#"
+			count: 1
+			path: bin/settings/routes.php
+
