@@ -1,15 +1,19 @@
 {
-    "name": "magic3w/switches",
-    "description": "Switches provides user profiles, configuration and privacy settings for m3w micro service environments",
-    "type": "project",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "César de la Cal Bretschneider",
-            "email": "cesar@magic3w.com"
-        }
-    ],
-    "require": {
-        "magic3w/permission-php-sdk": "dev-master"
-    }
+	"name": "magic3w/switches",
+	"description": "Switches provides user profiles, configuration and privacy settings for m3w micro service environments",
+	"type": "project",
+	"license": "MIT",
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"authors": [
+		{
+			"name": "César de la Cal Bretschneider",
+			"email": "cesar@magic3w.com"
+		}
+	],
+	"require": {
+		"magic3w/permission-php-sdk": "dev-master",
+		"magic3w/figure-sdk-php": "dev-master",
+		"magic3w/phpauth-sdk-php": "^0.1.1"
+	}
 }

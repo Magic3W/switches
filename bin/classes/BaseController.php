@@ -1,7 +1,6 @@
 <?php
 
-use auth\SSO;
-use auth\SSOCache;
+use magic3w\phpauth\sdk\SSO;
 use auth\Token;
 use chad\Chad;
 use permission\Permission;
@@ -9,7 +8,7 @@ use ping\Ping;
 use spitfire\cache\MemcachedAdapter;
 use spitfire\core\Environment;
 use spitfire\io\session\Session;
-use figure\SDK as Figure;
+use figure\sdk\Client as Figure;
 
 class BaseController extends Controller
 {
@@ -47,7 +46,7 @@ class BaseController extends Controller
 	protected $figure;
 	
 	public function _onload() {
-		$this->sso   = new SSOCache(Environment::get('SSO'));
+		$this->sso   = new SSO(Environment::get('SSO'));
 		$this->figure   = new Figure($this->sso, Environment::get('figure'));
 		#$this->ping  = new Ping(Environment::get('ping'), $this->sso);
 		#$this->chad  = new Chad(Environment::get('chad'), $this->sso);
