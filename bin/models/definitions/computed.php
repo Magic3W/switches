@@ -1,9 +1,11 @@
 <?php namespace definitions;
 
+use BooleanField;
 use Reference;
 use IntegerField;
 use spitfire\Model;
 use spitfire\storage\database\Schema;
+use StringField;
 use TextField;
 
 /* 
@@ -56,6 +58,29 @@ class ComputedModel extends Model
 		$schema->app = new IntegerField(true);
 		
 		/**
+		 * The key is the string that the application expects to receive when requesting
+		 * a user's profile. This allows apps to receive customized mappings for the current
+		 * network.
+		 * 
+		 * In the event of a key colliding with a system key, it will be overridden. Please note
+		 * that these mappings will always lookup the base settings, so you can't map onto
+		 * a mapping.
+		 */
+		$schema->key = new StringField(255);
+		
+		/**
+		 * The mask allows the designer of the application to 'remove' this setting for an
+		 * application, allowing to maintain private settings by adding two computed models
+		 * like this:
+		 * 
+		 *  - app: null, key: private-setting, mask: 0
+		 *  - app: xyz1, key: private-setting, mask: 1
+		 * 
+		 * Which would generate a setting that can only be read by xyz1.
+		 */
+		$schema->mask = new BooleanField();
+		
+		/**
 		 * The external vs internal indicates what the key for the application is 
 		 * inside switches and what the application wishes to receive (outside switches)
 		 * 
@@ -63,7 +88,6 @@ class ComputedModel extends Model
 		 * to that application)
 		 */
 		$schema->source = new Reference(SettingModel::class);
-		$schema->target = new Reference(SettingModel::class);
 		
 		/**
 		 * Describes mappings to transform the content in the event of the content
