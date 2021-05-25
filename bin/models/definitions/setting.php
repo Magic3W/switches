@@ -46,6 +46,15 @@ class SettingModel extends Model
 		$schema->index($schema->node);
 		
 		/**
+		 * The key refers to settings, since only settings provide actual meaning. Groups
+		 * do not have keys since they contain no user defined settings.
+		 * 
+		 * When reading user data, the application can either receive a user's setting 
+		 * dictionary, allowing overlays to modify these settings.
+		 */
+		$schema->key = new StringField(100);
+		
+		/**
 		 * Allows the application to define an app id for the application that has
 		 * read / write access to this setting. This prevents all other apps from
 		 * using this setting.

@@ -66,7 +66,6 @@ class NodeModel extends Model
 		$schema->updated  = new \IntegerField(true);
 		$schema->deleted  = new \IntegerField(true);
 		
-		$schema->key = new StringField(100);
 		$schema->index($schema->key)->unique(true);
 	}
 	
