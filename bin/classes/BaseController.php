@@ -1,9 +1,7 @@
 <?php
 
 use magic3w\phpauth\sdk\SSO;
-use chad\Chad;
 use permission\Permission;
-use ping\Ping;
 use spitfire\cache\MemcachedAdapter;
 use spitfire\core\Environment;
 use spitfire\io\session\Session;
@@ -30,18 +28,6 @@ class BaseController extends Controller
 	/** @var object */
 	protected $user;
 	
-	/**
-	 *
-	 * @var Ping
-	 */
-	protected $ping;
-	
-	/**
-	 *
-	 * @var Chad
-	 */
-	protected $chad;
-	
 	protected $authapp;
 	
 	protected $permission;
@@ -51,8 +37,6 @@ class BaseController extends Controller
 	public function _onload() {
 		$this->sso   = new SSO(Environment::get('SSO'));
 		$this->figure   = new Figure($this->sso, Environment::get('figure'));
-		#$this->ping  = new Ping(Environment::get('ping'), $this->sso);
-		#$this->chad  = new Chad(Environment::get('chad'), $this->sso);
 		#$this->permission = new Permission(Environment::get('permission'), $this->sso);
 		
 		#TODO: Read the expiration from a JWT from the Authorization header
