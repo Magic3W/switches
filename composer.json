@@ -14,10 +14,11 @@
 	"require": {
 		"magic3w/permission-php-sdk": "dev-master",
 		"magic3w/figure-sdk-php": "dev-master",
-		"magic3w/phpauth-sdk-php": "^0.1.1"
+		"magic3w/phpauth-sdk-php": "^0.2.1"
 	},
 	"require-dev": {
-		"phpstan/phpstan": "^0.12.82"
+		"phpstan/phpstan": "^0.12.82",
+		"squizlabs/php_codesniffer": "dev-dev/scope-indent-blank-lines"
 	},
     "scripts" : {
 		"test" : [
@@ -25,6 +26,17 @@
 		],
 		"baseline" : [
 			"./vendor/bin/phpstan analyse bin --level 5 --generate-baseline"
+		],
+		"sniff" : [
+			"./vendor/bin/phpcs --encoding=utf-8 -n -p $(git diff --diff-filter=d --cached --name-only | grep -E '\\.php$')"
 		]
-	}
+	},
+
+	"repositories":
+	[
+			{
+				"type": "vcs",
+				"url": "https://github.com/Csardelacal/PHP_Codesniffer"
+			}
+	]
 }
