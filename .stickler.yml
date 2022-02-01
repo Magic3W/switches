@@ -1,4 +1,4 @@
 linters:
   phpcs:
-      standard: './.phpcs.xml'
+      standard: './vendor/magic3w/php-coding-standard/.phpcs.xml'
       extensions: 'php'

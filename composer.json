@@ -18,7 +18,7 @@
 	},
 	"require-dev": {
 		"phpstan/phpstan": "^0.12.82",
-		"squizlabs/php_codesniffer": "dev-dev/scope-indent-blank-lines"
+		"magic3w/php-coding-standard": "^1.0"
 	},
     "scripts" : {
 		"test" : [
@@ -28,7 +28,7 @@
 			"./vendor/bin/phpstan analyse bin --level 5 --generate-baseline"
 		],
 		"sniff" : [
-			"./vendor/bin/phpcs --encoding=utf-8 -n -p $(git diff --diff-filter=d --cached --name-only | grep -E '\\.php$')"
+			"./vendor/bin/phpcs --standard=./vendor/magic3w/php-coding-standard/.phpcs.xml --encoding=utf-8 -n -p $(git diff --diff-filter=d --cached --name-only | grep -E '\\.php$')"
 		]
 	},
 

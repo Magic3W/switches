@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c649f225e6830d476e596a86536aa763",
+    "content-hash": "23bc47a4e9373fdfa08fbb9a3c88bf91",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -987,6 +987,41 @@
     ],
     "packages-dev": [
         {
+            "name": "magic3w/php-coding-standard",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Magic3W/php-coding-standard.git",
+                "reference": "a8c4094a1c7ec365e4d4d2cbcac8a6157631c54a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Magic3W/php-coding-standard/zipball/a8c4094a1c7ec365e4d4d2cbcac8a6157631c54a",
+                "reference": "a8c4094a1c7ec365e4d4d2cbcac8a6157631c54a",
+                "shasum": ""
+            },
+            "require": {
+                "squizlabs/php_codesniffer": "dev-dev/scope-indent-blank-lines"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "César de la Cal Bretschneider",
+                    "email": "cesar@magic3w.com"
+                }
+            ],
+            "description": "Magic3W Coding standard for PHP projects.",
+            "support": {
+                "issues": "https://github.com/Magic3W/php-coding-standard/issues",
+                "source": "https://github.com/Magic3W/php-coding-standard/tree/1.0.0"
+            },
+            "time": "2022-02-01T12:46:42+00:00"
+        },
+        {
             "name": "squizlabs/php_codesniffer",
             "version": "dev-dev/scope-indent-blank-lines",
             "source": {
@@ -1046,8 +1081,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "magic3w/permission-php-sdk": 20,
-        "magic3w/figure-sdk-php": 20,
-        "squizlabs/php_codesniffer": 20
+        "magic3w/figure-sdk-php": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
